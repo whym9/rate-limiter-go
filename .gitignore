@@ -1,0 +1,11 @@
+bin/
+dist/
+coverage.out
+*.test
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# env files
+.env

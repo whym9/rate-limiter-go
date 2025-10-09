@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: rl-redis
+    command: ["redis-server", "--save", "60", "1", "--loglevel", "warning"]
+    ports:
+      - "9001:6379"             
+    volumes:
+      - rl-redis-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rl-api
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      HTTP_ADDRESS: ":1234"
+      RATE_LIMIT: "${RATE_LIMIT:-100}"
+      WINDOW_SEC: "${WINDOW_SEC:-60}"
+      REDIS_ADDRESS: "${REDIS_ADDRESS:-redis:6379}"
+    ports:
+      - "1234:1234"
+    restart: unless-stopped
+
+volumes:
+  rl-redis-data:
