@@ -68,7 +68,10 @@ func writeJSON(w http.ResponseWriter, logger *logi.Logger, resp Response) {
 	logger.LogDecision(resp.Key, resp.Remaining, resp.Allowed, resp.ResetAt)
 
 	w.WriteHeader(http.StatusOK)
-	w.Write(body)
+	_, err = w.Write(body)
+	if err != nil {
+		logger.Error("while trying to write response", err)
+	}
 }
 
 func GetClientKey(r *http.Request) string {
