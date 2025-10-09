@@ -20,4 +20,4 @@ Implements a **Fixed Window Counter** algorithm with Redis for distributed state
 
 ## 📁 Project Structure
 
-![CI](https://github.com/whym9/rate-limiter-go/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/whym9/rate-limiter-go/actions/workflows/ci.yaml/badge.svg)
