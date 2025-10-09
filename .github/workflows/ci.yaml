@@ -41,7 +41,7 @@ jobs:
         run: go test -race -coverprofile=coverage.out ./...
 
       - name: Build binary
-        run: go build -o bin/api ./cmd/api
+        run: go build -o bin/api ./cmd/rate-limiter
 
   docker-build:
     runs-on: ubuntu-latest
