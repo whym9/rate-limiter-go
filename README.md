@@ -1,3 +1,4 @@
+![CI](https://github.com/whym9/rate-limiter-go/actions/workflows/ci.yaml/badge.svg)
 # 🚦 Rate Limiter API (Go + Redis)
 
 A lightweight, production-style **rate limiting service** written in Go.  
@@ -19,5 +20,3 @@ Implements a **Fixed Window Counter** algorithm with Redis for distributed state
 ---
 
 ## 📁 Project Structure
-
-![CI](https://github.com/whym9/rate-limiter-go/actions/workflows/ci.yaml/badge.svg)
