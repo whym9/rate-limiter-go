@@ -13,6 +13,12 @@ func main() {
 	conf, err := config.GetConfig()
 	if err != nil {
 		logger.Error("could not load config", err)
+		os.Exit(1)
+	}
+
+	if err := conf.Validate(); err != nil {
+		logger.Error("invalid configurations", err)
+		os.Exit(1)
 	}
 
 	server := http.New(logger, conf.HTTPAddr)
