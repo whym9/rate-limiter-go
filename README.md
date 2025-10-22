@@ -16,3 +16,8 @@ Implements a **Token Bucket** algorithm with Redis+Lua for distributed state, ex
 - **CI/CD** pipeline with GitHub Actions
 - `/healthz` endpoint for monitoring
 - POST /v1/rate-limit - rate limit endpoint
+
+Deployed at: https://rate-limiter-go.onrender.com\
+health check: https://rate-limiter-go.onrender.com/healthz\
+rate-limit: https://rate-limiter-go.onrender.com/v1/rate-limit (POST)\
+metrics: https://rate-limiter-go.onrender.com/metrics
