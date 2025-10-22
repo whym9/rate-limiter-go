@@ -35,10 +35,11 @@ func (a *App) Run() error {
 		DB:       conf.RedisDB,
 	})
 
-	limiter := rlimiter.NewRedisLimiter(
+	limiter := rlimiter.NewTokenBucketLimiter(
 		redisClient,
 		a.config.RateLimit,
 		a.config.WindowSec,
+		"rl",
 	)
 
 	logger := logi.NewLogger()
